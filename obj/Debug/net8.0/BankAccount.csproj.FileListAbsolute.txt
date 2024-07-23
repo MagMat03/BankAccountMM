@@ -12,3 +12,4 @@ C:\Users\Rodzicowie\Desktop\BankAccount\obj\Debug\net8.0\refint\BankAccount.dll
 C:\Users\Rodzicowie\Desktop\BankAccount\obj\Debug\net8.0\BankAccount.pdb
 C:\Users\Rodzicowie\Desktop\BankAccount\obj\Debug\net8.0\BankAccount.genruntimeconfig.cache
 C:\Users\Rodzicowie\Desktop\BankAccount\obj\Debug\net8.0\ref\BankAccount.dll
+C:\Users\Rodzicowie\Desktop\BankAccount\obj\Debug\net8.0\BankAccount.sourcelink.json

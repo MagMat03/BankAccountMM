@@ -54,8 +54,67 @@ namespace BankAccountApp
             switch (choice)
             {
                 case "1":
-                
+                Console.WriteLine($"Stan konta: {account.Balance} PLN");
+                    break;
+                 case "2":
+                    Console.Write("Podaj kwotę wpłaty: ");
+                    if (decimal.TryParse(Console.ReadLine(), out decimal depositAmount))
+                    {
+                        account.Deposit(depositAmount);
+                        Console.WriteLine("Wpłata zakończona sukcesem.");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Nieprawidłowa kwota.");
+                    }
+                    break;
+                case "3":
+                    Console.Write("Podaj kwotę wypłaty: ");
+                    if (decimal.TryParse(Console.ReadLine(), out decimal withdrawalAmount))
+                    {
+                        if (account.Withdraw(withdrawalAmount))
+                        {
+                            Console.WriteLine("Wypłata zakończona sukcesem.");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Nie można wypłacić więcej niż jest na koncie.");
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Nieprawidłowa kwota.");
+                    }
+                    break;
+                case "4":
+                    Console.WriteLine("Historia operacji:");
+                    foreach (var operation in account.GetOperations())
+                    {
+                        Console.WriteLine(operation);
+                    }
+                    break;
+                case "5":
+                    exit = true;
+                    break;
+                default:
+                    Console.WriteLine("Nieznana opcja.");
+                    break;
             }
         }
+        static void Main(string[] args)
+        {
+            BankAccount account = new BankAccount();
+            bool exit = false;
+
+            while (!exit)
+            {
+                ShowMenu();
+                string choice = Console.ReadLine();
+                HandleUserChoice(choice, account, ref exit);
+                Console.WriteLine();
+            }
+        }
+            
+        
     }
 }
